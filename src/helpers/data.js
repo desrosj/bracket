@@ -1,13 +1,16 @@
 const YEAR = require('../config/year');
-const CHOICES = require(`../config/${YEAR}/choices.json`);
-const COMPETITORS = require(`../config/${YEAR}/competitors.json`);
-const MATCHUPS = require(`../config/${YEAR}/matchups.json`);
-const TEAMS = require(`../config/${YEAR}/teams.json`);
+
+const getDataByYear = (desiredYear) => {
+  const year = desiredYear || YEAR;
+
+  return {
+    choices: require(`../config/${year}/choices.json`),
+    competitors: require(`../config/${year}/competitors.json`),
+    matchups: require(`../config/${year}/matchups.json`),
+    teams: require(`../config/${year}/teams.json`)
+  };
+}
 
 module.exports = {
-  CHOICES,
-  COMPETITORS,
-  MATCHUPS,
-  TEAMS,
-  YEAR
+  getDataByYear
 }
